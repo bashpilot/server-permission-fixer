@@ -1,22 +1,34 @@
-`# Server Permission Fixer`
+# Server Permission Fixer
 
-``A lightweight Bash script to instantly repair Linux web server file and directory permissions (sets web directories to `755` and files to `644`).``
+A lightweight Bash CLI tool for repairing common Linux web-server file and directory permissions.
 
-`## Usage`
+It recursively sets:
 
-`Download and run the script on your server:`
+- Directories to `755`
+- Files to `644`
 
-```` ```bash ````  
-`chmod +x fix-permissions.sh`  
-`sudo ./fix-permissions.sh /var/www/html www-data`
+This is useful when incorrect ownership or permissions prevent a web application from reading or serving its files correctly.
 
-Parameters:
+## Requirements
 
-1. Target Directory (Default: `/var/www/html`)  
-2. User/Group (Default: `www-data`)
+- Linux
+- Bash
+- Root or sudo privileges
 
-## **Need Automated Server Management?**
+## Usage
 
-Tired of manually managing Linux permissions, SSH keys, and server configs?
+```bash
+chmod +x fix-permissions.sh
+sudo ./fix-permissions.sh /var/www/html www-data
 
-Check out [BashPilot](https://bashpilot.com)**BashPilot** — the lightweight, AI-driven server management platform designed for modern sysadmins and developers. Easily manage your servers with simple conversational commands instead of writing manual scripts.
+Arguments:
+1. Target directory — default: /var/www/html
+2. User/group — default: www-data
+Example:
+sudo ./fix-permissions.sh /var/www/example.com exampleuser
+
+Important
+Review the target directory and intended ownership before running the script on a production server. Always keep a backup of important files and verify application-specific permission requirements.
+Server Management
+For professional Linux server management and security services:
+https://iserversupport.com/linux-server-management/
